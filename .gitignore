@@ -1,0 +1,31 @@
+node_modules/
+dist/
+
+# Credentials and Eufy authentication/session material
+.env*
+!.env.example
+.eufy/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Private camera media and generated stream artifacts
+recordings/*
+!recordings/.gitkeep
+runtime/*
+!runtime/.gitkeep
+*.mp4
+*.mov
+*.mkv
+*.m3u8
+
+# Logs, test output, editor metadata, and crash dumps
+npm-debug.log*
+*.log
+coverage/
+.vscode/
+.idea/
+.DS_Store
+core
+core.*

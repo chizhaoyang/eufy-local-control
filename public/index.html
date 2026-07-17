@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eufy Local Control</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/vendor/hls.js"></script>
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">LOCAL SECURITY CONSOLE</p>
+      <h1>Eufy Control</h1>
+    </div>
+    <div id="connection" class="status"><span></span><b>Connecting</b></div>
+  </header>
+  <main>
+    <section class="intro">
+      <div><h2>Your devices</h2><p>Commands run on this machine; camera P2P prefers the fastest available path.</p></div>
+      <button id="refresh" class="secondary">Refresh</button>
+    </section>
+    <div id="notice" role="alert"></div>
+    <section id="twofa" class="twofa hidden">
+      <div><b>Verification required</b><p>Enter the 6-digit code sent by Eufy.</p></div>
+      <form id="twofa-form"><input id="twofa-code" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" required placeholder="000000"><button>Verify</button></form>
+    </section>
+    <section id="devices" class="grid"><div class="empty">Discovering devices…</div></section>
+    <section class="recordings">
+      <div class="section-title"><div><h2>Local recordings</h2><p>MP4 files stored in <code>recordings/</code>.</p></div><button id="recordings-refresh" class="secondary">Refresh</button></div>
+      <div id="recordings-list" class="recording-list"></div>
+    </section>
+  </main>
+  <dialog id="viewer">
+    <div class="viewer-head"><div><p class="eyebrow">LIVE</p><h2 id="viewer-title">Camera</h2></div><button id="viewer-close" class="icon" aria-label="Close">×</button></div>
+    <video id="video" controls autoplay muted playsinline></video>
+    <p id="viewer-state">Starting secure local stream…</p>
+    <button id="stream-stop" class="danger">Stop stream</button>
+  </dialog>
+</body>
+</html>
